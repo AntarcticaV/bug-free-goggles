@@ -1,0 +1,40 @@
+﻿<Window x:Class="Sky_Wings_Airline.Windows.ChangeFlight"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sky_Wings_Airline.Windows"
+        mc:Ignorable="d"
+        Title="Изменить запись" Height="584" Width="439" ResizeMode="NoResize">
+    <Grid>
+        <ComboBox x:Name="comboBoxDepartureAirport" HorizontalAlignment="Left" Margin="218,44,0,0" VerticalAlignment="Top" Width="190" SelectionChanged="comboBoxDepartureAirport_SelectionChanged"/>
+        <ComboBox x:Name="comboBoxArrivalAirport" HorizontalAlignment="Left" Margin="218,108,0,0" VerticalAlignment="Top" Width="190" SelectionChanged="comboBoxArrivalAirport_SelectionChanged"/>
+        <ComboBox x:Name="comboBoxPlane" HorizontalAlignment="Left" Margin="218,300,0,0" VerticalAlignment="Top" Width="190"/>
+        <ComboBox x:Name="comboBoxFirstPilot" HorizontalAlignment="Left" Margin="218,364,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="comboBoxFirstPilot_SelectionChanged"/>
+        <ComboBox x:Name="comboBoxSecondPilot" HorizontalAlignment="Left" Margin="219,428,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="comboBoxSecondPilot_SelectionChanged"/>
+        <DatePicker x:Name="datePickerDepartureDate" HorizontalAlignment="Left" Margin="218,172,0,0" VerticalAlignment="Top" Width="190" >
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <DatePicker x:Name="datePickerArrivalDate" HorizontalAlignment="Left" Margin="218,236,0,0" VerticalAlignment="Top" Width="190">
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <TextBlock x:Name="textBlockDepartureAirport" HorizontalAlignment="Left" Margin="10,47,0,0" TextWrapping="Wrap" Text="Аэропорт отправки" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockArrivalAirport" HorizontalAlignment="Left" Margin="10,111,0,0" TextWrapping="Wrap" Text="Аэропорт прибытия" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockDepartureDate" HorizontalAlignment="Left" Margin="10,176,0,0" TextWrapping="Wrap" Text="Время отправки" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockArrivalDate" HorizontalAlignment="Left" Margin="10,240,0,0" TextWrapping="Wrap" Text="Время прибытия" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockPlane" HorizontalAlignment="Left" Margin="10,303,0,0" TextWrapping="Wrap" Text="Самалёт" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockFirstPilot" HorizontalAlignment="Left" Margin="10,367,0,0" TextWrapping="Wrap" Text="Первый пилот" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockSecondPilot" HorizontalAlignment="Left" Margin="10,431,0,0" TextWrapping="Wrap" Text="Второй пилот" VerticalAlignment="Top"/>
+        <Button x:Name="buttonSave" Content="Сохранить" HorizontalAlignment="Left" Margin="68,0,0,25" VerticalAlignment="Bottom" Height="34" Width="94" Click="buttonSave_Click"/>
+        <Button x:Name="buttonBack" Content="Назад" Margin="0,0,68,25" VerticalAlignment="Bottom" Height="34" Width="94" Click="buttonBack_Click" HorizontalAlignment="Right"/>
+
+    </Grid>
+</Window>

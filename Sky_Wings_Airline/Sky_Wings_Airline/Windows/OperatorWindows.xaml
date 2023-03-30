@@ -1,0 +1,126 @@
+﻿<Window x:Class="Sky_Wings_Airline.Windows.OperatorWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sky_Wings_Airline.Windows"
+        mc:Ignorable="d"
+        Title="Меню оператора" Height="450" Width="800">
+    <Grid>
+
+        <DataGrid x:Name="dataGrid" Margin="26,90,26,69" AutoGenerateColumns="False" HeadersVisibility="Column" Grid.ColumnSpan="2">
+            <DataGrid.Resources>
+                <Style TargetType="DataGrid">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Отправка" Binding="{Binding Path=DepartureAirport}" Width="120">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1, 2, 1 ,2"/>
+                            <Setter Property="Padding" Value="5, 0"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Прибытие" Binding="{Binding Path=ArrivalAirport}" Width="120">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1, 2, 1 ,2"/>
+                            <Setter Property="Padding" Value="5, 0"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Самолёт" Binding="{Binding Path= Plane}" Width="100">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1, 2, 1 ,2"/>
+                            <Setter Property="Padding" Value="5, 0"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Дата отправки" Binding="{Binding Path=DepartureDate}" Width="100">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1, 2, 1 ,2"/>
+                            <Setter Property="Padding" Value="5, 0"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Дата прибытия" Binding="{Binding Path=ArrivalDate}" Width="100">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1, 2, 1 ,2"/>
+                            <Setter Property="Padding" Value="5, 0"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Первый пилот" Binding="{Binding Path=SurnameFirstPilot}" Width="100">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1, 2, 1 ,2"/>
+                            <Setter Property="Padding" Value="5, 0"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Второй пилот" Binding="{Binding Path=SurnameSecondPilot}" Width="100">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1, 2, 1 ,2"/>
+                            <Setter Property="Padding" Value="5, 0"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Status}" Value="Рейс отменён">
+                            <Setter Property="Background" Value="DarkRed"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Status}" Value="Рейс разрешён">
+                            <Setter Property="Background" Value="Green"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Status}" Value="Готов к продаже билетов">
+                            <Setter Property="Background" Value="Yellow"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Status}" Value="Согласованно">
+                            <Setter Property="Background" Value="YellowGreen"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Status}" Value="Ожидает согласования">
+                            <Setter Property="Background" Value="Gray"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Rectangle HorizontalAlignment="Left" Height="18" Margin="26,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="18" Fill ="Gray"/>
+        <Rectangle HorizontalAlignment="Left" Height="18" Margin="541,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="18" Fill ="DarkRed"/>
+        <Rectangle HorizontalAlignment="Left" Height="18" Margin="300,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="18" Fill ="Green"/>
+        <Rectangle HorizontalAlignment="Left" Height="18" Margin="300,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="18" Fill ="Yellow"/>
+        <Rectangle HorizontalAlignment="Left" Height="18" Margin="26,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="18" Fill ="YellowGreen"/>
+        <TextBlock x:Name="textBlockGray" HorizontalAlignment="Left" Margin="64,11,0,0" TextWrapping="Wrap" Text="Ожидает согласования" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockDarckRed" HorizontalAlignment="Left" Margin="581,11,0,0" TextWrapping="Wrap" Text="Рейс отменён" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockGreen" HorizontalAlignment="Left" Margin="338,48,0,0" TextWrapping="Wrap" Text="Рейс разрешён" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockYellow" HorizontalAlignment="Left" Margin="338,11,0,0" TextWrapping="Wrap" Text="Готов к продаже билетов" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockYellowGreen" HorizontalAlignment="Left" Margin="64,48,0,0" TextWrapping="Wrap" Text="Согласованно" VerticalAlignment="Top"/>
+        <Button x:Name="buttonBack" Content="Назад" HorizontalAlignment="Left" Margin="734,0,0,23" VerticalAlignment="Bottom" Click="buttonBack_Click"/>
+        <Button x:Name="buttonAddFlight" Content="Добавить рейс" HorizontalAlignment="Left" Margin="26,0,0,23" Height="20" VerticalAlignment="Bottom" Click="buttonAddFlight_Click"/>
+        <Button x:Name="buttonDeleteFlight" Content="Удалить рейс" HorizontalAlignment="Left" Margin="309,0,0,23" Click="buttonDeleteFlight_Click" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="buttonChangeFlight" Content="Изменить рейс" HorizontalAlignment="Left" Margin="168,0,0,23" Height="20" VerticalAlignment="Bottom" Click="buttonChangeFlight_Click"/>
+    </Grid>
+</Window>
